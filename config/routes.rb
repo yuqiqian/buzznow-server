@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'user/index'
+
+  get 'user/show'
+
   get 'welcome/index'
 
   get 'welcome/about'

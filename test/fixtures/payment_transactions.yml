@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requester_id: 
+  helper_id: 
+  payment_time: 2016-01-23 17:27:11
+  amout: 9.99
+  payment_method_id: 
+  transaction_id: 1
+
+two:
+  requester_id: 
+  helper_id: 
+  payment_time: 2016-01-23 17:27:11
+  amout: 9.99
+  payment_method_id: 
+  transaction_id: 1
