@@ -5,7 +5,7 @@ class CreatePaymentTransactions < ActiveRecord::Migration
       t.references :helper, index: true
       t.datetime :payment_time
       t.decimal :amount
-      t.references :payment_method, index: true, foreign_key: true
+      t.references :payment_method, index: true
       t.integer :transaction_id
 
       t.timestamps null: false
