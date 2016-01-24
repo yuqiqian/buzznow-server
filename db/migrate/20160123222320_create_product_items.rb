@@ -4,7 +4,7 @@ class CreateProductItems < ActiveRecord::Migration
       t.references :product, index: true, foreign_key: true
       t.decimal :quantity
       t.boolean :is_bought
-      t.references :shoppinglist, index: true, foreign_key: true
+      t.references :shoplist, index: true, foreign_key: true
 
       t.timestamps null: false
     end

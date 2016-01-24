@@ -1,8 +1,8 @@
 class CreateShoplists < ActiveRecord::Migration
   def change
     create_table :shoplists do |t|
-      t.references :requester, index: true, foreign_key: true
-      t.references :helper
+      t.references :requester, index: true
+      t.references :helper, index: true
       t.string :supermarket
       t.datetime :expire_time
       t.decimal :total_price
@@ -11,5 +11,7 @@ class CreateShoplists < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_foreign_key :shoplists, :users, column: :requester_id
+    add_foreign_key :shoplists, :users, column: :helper_id
   end
 end
