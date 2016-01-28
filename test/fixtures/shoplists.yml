@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requester_id: 
+  helper: 
+  supermarket: MyString
+  expire_time: 2016-01-23 17:22:16
+  total_price: 9.99
+  actual_price: 9.99
+  status: MyString
+
+two:
+  requester_id: 
+  helper: 
+  supermarket: MyString
+  expire_time: 2016-01-23 17:22:16
+  total_price: 9.99
+  actual_price: 9.99
+  status: MyString
