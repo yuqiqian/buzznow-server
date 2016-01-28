@@ -73,4 +73,12 @@ products = Product.all
 		)
 end
 
+10.times do
+	sm = SuperMarket.create!(
+		name: Faker::Company.name
+		)
+	ps = products.sample(50)
+	sm.products = ps
+end
+
 puts "Seed finished"

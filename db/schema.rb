@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123234810) do
+ActiveRecord::Schema.define(version: 20160128032110) do
 
   create_table "payment_transactions", force: :cascade do |t|
     t.integer  "requester_id"
@@ -54,8 +54,18 @@ ActiveRecord::Schema.define(version: 20160123234810) do
     t.string   "name"
     t.string   "product_img"
     t.decimal  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "Supermarkets_id"
+  end
+
+  add_index "products", ["Supermarkets_id"], name: "index_products_on_Supermarkets_id"
+
+  create_table "products_super_markets", id: false, force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "super_market_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "shoplists", force: :cascade do |t|
@@ -70,7 +80,18 @@ ActiveRecord::Schema.define(version: 20160123234810) do
     t.datetime "updated_at",   null: false
   end
 
+  add_index "shoplists", ["helper_id"], name: "index_shoplists_on_helper_id"
   add_index "shoplists", ["requester_id"], name: "index_shoplists_on_requester_id"
+
+  create_table "super_markets", force: :cascade do |t|
+    t.text     "name"
+    t.integer  "products_id"
+    t.text     "picture"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "super_markets", ["products_id"], name: "index_super_markets_on_products_id"
 
   create_table "user_profiles", force: :cascade do |t|
     t.integer  "user_id"
