@@ -1,0 +1,22 @@
+<h1>User#history</h1>
+<p>Find me in app/views/user/history.html.erb</p>
+<p><%= @user.first_name %></p>
+<p><%= @user.first_name %></p>
+<h2>Request sended</h2>
+<% @sendReq.each_with_index do |sr, i| %>
+	<p><%= sr.supermarket %></p>
+	<p><%= sr.total_price %></p>
+	<p><%= sr.actual_price %></p>
+	<p><%= @helpers[i].first_name %></p>
+	<p><%= sr.status %></p>
+<% end %>
+
+
+<h2>Request received</h2>
+<% @recvReq.each_with_index do |rr, i| %>
+	<p><%= rr.supermarket %></p>
+	<p><%= rr.total_price %></p>
+	<p><%= rr.actual_price %></p>
+	<p><%= @requesters[i].first_name %></p>
+	<p><%= rr.status %></p>
+<% end %>

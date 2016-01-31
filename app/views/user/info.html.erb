@@ -1,0 +1,8 @@
+<h1>Hi <%= @user.first_name %></h1>
+<p>Find me in app/views/user/info.html.erb</p>
+<p><%= @user.email %></p>
+<p><%= @user.last_name %></p>
+<p><%= @profile.address %></p>
+<p><%= @profile.profile_img_url %></p>
+<%= image_tag("#{@profile.profile_img_url}") %>
+

@@ -21,7 +21,7 @@ require 'faker'
 		billing_address:addr
 		)
 
-	UserProfile.create!(
+	up = UserProfile.create!(
 		address: addr,
 		password: Faker::Internet.password,
 		profile_img_url: Faker::Avatar.image,
@@ -29,6 +29,8 @@ require 'faker'
 		user: u
 		)
 
+	u.user_profile = up
+	u.save!
 
 end
 users = User.all

@@ -1,0 +1,7 @@
+<h1>Shopping#products</h1>
+<p>Find me in app/views/shopping/products.html.erb</p>
+<% @products.each do |p|%>
+<p><%= link_to "#{p.name}", shopping_productDetail_path(:product => p.id) %></p>
+<%= image_tag("#{p.product_img}") %>
+<p><%= p.price %></p>
+<% end %>

@@ -1,13 +1,13 @@
 require 'test_helper'
 
 class UserControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
+  test "should get info" do
+    get :info
     assert_response :success
   end
 
-  test "should get show" do
-    get :show
+  test "should get history" do
+    get :history
     assert_response :success
   end
 

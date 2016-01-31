@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  get 'payment/sendPaymentRequest'
+
+  get 'payment/payToHelper'
+
+  get 'order/shoplistSummary'
+
+  get 'order/checklist'
+
+  get 'order/setOrderStatus'
+
+  get 'order/pickShopList'
+
+  get 'order/addReceipt'
+
+  get 'order/location'
+
+  get 'shopping/supermarkets'
+
+  get 'shopping/products'
+
+  get 'shopping/productDetail'
+
+  get 'user/info'
+
+  get 'user/history'
+
+  get 'authentication/verify'
+
   get 'products/index'
 
   get 'user/index'

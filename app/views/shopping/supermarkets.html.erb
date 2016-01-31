@@ -1,0 +1,5 @@
+<h1>Shopping#supermarkets</h1>
+<p>Find me in app/views/shopping/supermarkets.html.erb</p>
+<% @supermarkets.each do |sm| %>
+<p><%= link_to "#{sm.name}", shopping_products_path(:supermarket => sm.id)  %></p>
+<% end %>
