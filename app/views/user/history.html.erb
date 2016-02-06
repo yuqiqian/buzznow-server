@@ -4,6 +4,7 @@
 <p><%= @user.first_name %></p>
 <h2>Request sended</h2>
 <% @sendReq.each_with_index do |sr, i| %>
+	<p><%= link_to "Detail", order_shoplistSummary_path(:shoplist => sr) %></p>
 	<p><%= sr.supermarket %></p>
 	<p><%= sr.total_price %></p>
 	<p><%= sr.actual_price %></p>
@@ -14,6 +15,7 @@
 
 <h2>Request received</h2>
 <% @recvReq.each_with_index do |rr, i| %>
+	<p><%= link_to "Detail", order_shoplistSummary_path(:shoplist => rr) %></p>
 	<p><%= rr.supermarket %></p>
 	<p><%= rr.total_price %></p>
 	<p><%= rr.actual_price %></p>

@@ -14,6 +14,7 @@ require 'faker'
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name
 		)
+
 	addr = [Faker::Address.street_address,Faker::Address.city,Faker::Address.state,Faker::Address.zip].join("")
 	p = Payment.create!(
 		user: u,
@@ -81,6 +82,27 @@ end
 		)
 	ps = products.sample(50)
 	sm.products = ps
+end
+
+users.each do |u|
+	3.times do
+		sl = Shoplist.create!(
+			requester: u,
+			supermarket: Faker::App.name,
+			expire_time: Faker::Time.between(DateTime.now - 30, DateTime.now),
+			total_price: Faker::Number.decimal(2),
+			actual_price: 0,
+			status: "not start"
+			) 
+		5.times do
+			ProductItem.create!(
+				product: products.sample,
+				quantity: 1,
+				is_bought: false,
+				shoplist: sl
+				)
+		end
+	end
 end
 
 puts "Seed finished"

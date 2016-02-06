@@ -53,3 +53,7 @@ group :development do
 end
 
 gem 'faker'
+
+gem 'carrierwave'
+
+gem 'mini_magick'

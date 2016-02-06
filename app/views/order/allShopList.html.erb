@@ -1,0 +1,9 @@
+<h1>Order#allShopList</h1>
+<p>Find me in app/views/order/allShopList.html.erb</p>
+<% @shoplists.each do |sl| %>
+<p><%= sl.supermarket %></p>
+<p><%= sl.requester.first_name %></p>
+<p><%= sl.total_price %></p>
+<p><%= link_to "Detail", order_shoplistSummary_path(:shoplist => sl) %></p>
+<hr/>
+<% end %>

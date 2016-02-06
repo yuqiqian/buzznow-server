@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131014255) do
+ActiveRecord::Schema.define(version: 20160204011141) do
 
   create_table "payment_transactions", force: :cascade do |t|
     t.integer  "requester_id"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20160131014255) do
     t.string   "status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "receipt"
   end
 
   add_index "shoplists", ["requester_id"], name: "index_shoplists_on_requester_id"
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 20160131014255) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_profile_id"
+    t.string   "avatar"
   end
 
   add_index "users", ["user_profile_id"], name: "index_users_on_user_profile_id"

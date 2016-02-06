@@ -1,2 +1,16 @@
 <h1>Order#shoplistSummary</h1>
 <p>Find me in app/views/order/shoplistSummary.html.erb</p>
+<p><%= @shoplist.requester.first_name%></p>
+<p><%= @shoplist.helper.first_name%></p>
+<p><%= @shoplist.supermarket%></p>
+<p><%= @shoplist.total_price%></p>
+<p><%= @shoplist.actual_price%></p>
+<p><%= @shoplist.status%></p>
+<p><%= @shoplist.expire_time%></p>
+<h2>Products:</h2>
+<% @productitems.each do |pi|%>
+<p><%= pi.product.name%></p>
+<p><%=pi.quantity%></p>
+<p><%=pi.is_bought%></p>
+<% end %>
+

@@ -3,13 +3,19 @@ Rails.application.routes.draw do
 
   get 'payment/payToHelper'
 
+  post 'order/product_item_update'
+  
+  post 'order/shop_list_update'
+
   get 'order/shoplistSummary'
 
   get 'order/checklist'
 
-  get 'order/setOrderStatus'
+  post 'order/setOrderStatus'
 
-  get 'order/pickShopList'
+  get 'order/allShopList'
+
+  post 'order/pickShopList'
 
   get 'order/addReceipt'
 
@@ -29,6 +35,8 @@ Rails.application.routes.draw do
 
   get 'products/index'
 
+  post 'user/update'
+  
   get 'user/index'
 
   get 'user/show'
