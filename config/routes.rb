@@ -1,51 +1,46 @@
 Rails.application.routes.draw do
-  get 'payment/sendPaymentRequest'
 
-  get 'payment/payToHelper'
+  get 'user/:user' => 'user#user'
 
-  post 'order/product_item_update'
-  
-  post 'order/shop_list_update'
+  post 'auth/:gtid' => 'user#auth'
 
-  get 'order/shoplistSummary'
+  post 'user/' => 'user#create'
 
-  get 'order/checklist'
+  post 'user/:user_id' => 'user#update'
 
-  post 'order/setOrderStatus'
+  post 'user/resetpassword' => 'user#resetpassword'
 
-  get 'order/allShopList'
+  get 'profile/:user_id' => 'user#profile'
 
-  post 'order/pickShopList'
+  post '/profile/:user_id' => 'user#updateProfile'
 
-  get 'order/addReceipt'
+  GET "/shoplist/:shoplist_id" => 'shoplist#shoplist'
 
-  get 'order/location'
+  POST "/shoplist/" => 'shoplist#new'
 
-  get 'shopping/supermarkets'
+  POST "/shoplist/:shoplist_id" => 'shoplist#update'
 
-  get 'shopping/products'
+  GET "/product_item/:product_item_id" => "product_item#product_item"
 
-  get 'shopping/productDetail'
+  POST "/product_item/" => "product_item#new"
 
-  get 'user/info'
+  POST "/product_item/:product_item_id" => "product_item#update"
 
-  get 'user/history'
+  GET "/product/:product_id" => "product#product"
 
-  get 'authentication/verify'
+  POST "/product/:product_id" => "product#update"
 
-  get 'products/index'
+  GET "/supermarket/:supermarket_id" => "supermarket#supermarket"
 
-  post 'user/update'
-  
-  get 'user/index'
+  POST "/supermarket/:supermarket_id" => "supermarket#update"
 
-  get 'user/show'
+  GET "/payment/:payment_id" => "payment#payment"
 
-  get 'welcome/index'
+  POST "/payment/:payment_id" => "payment#update"
 
-  get 'welcome/about'
+  GET "/payment_transaction/:payment_transaction_id" => "payment_transaction#payment_transaction"
 
-  root to: 'welcome#index'
+  POST "/payment_transaction/:payment_transaction_id" => "payment_transaction#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -33,4 +33,10 @@ class UserController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :avatar)
   end
+
+  def user
+    user_id = params[:user]
+    user = User.find(user_id)
+    render json: user
+  end
 end
