@@ -8,39 +8,41 @@ Rails.application.routes.draw do
 
   post 'user/:user_id' => 'user#update'
 
-  post 'user/resetpassword' => 'user#resetpassword'
+  post 'user/resetpassword' => 'user#reset_password'
 
   get 'profile/:user_id' => 'user#profile'
 
-  post '/profile/:user_id' => 'user#updateProfile'
+  post 'profile/create/:user_id' => 'user#create_profile'
 
-  GET "/shoplist/:shoplist_id" => 'shoplist#shoplist'
+  post 'profile/:profile_id' => 'user#update_profile'
 
-  POST "/shoplist/" => 'shoplist#new'
+  get "shoplist/:shoplist_id" => 'shoplist#shoplist'
 
-  POST "/shoplist/:shoplist_id" => 'shoplist#update'
+  post "shoplist/" => 'shoplist#new'
 
-  GET "/product_item/:product_item_id" => "product_item#product_item"
+  post "shoplist/:shoplist_id" => 'shoplist#update'
 
-  POST "/product_item/" => "product_item#new"
+  get "product_item/:product_item_id" => "product_item#product_item"
 
-  POST "/product_item/:product_item_id" => "product_item#update"
+  post "product_item/" => "product_item#new"
 
-  GET "/product/:product_id" => "product#product"
+  post "product_item/:product_item_id" => "product_item#update"
 
-  POST "/product/:product_id" => "product#update"
+  get "product/:product_id" => "product#product"
 
-  GET "/supermarket/:supermarket_id" => "supermarket#supermarket"
+  post "product/:product_id" => "product#update"
 
-  POST "/supermarket/:supermarket_id" => "supermarket#update"
+  get "supermarket/:supermarket_id" => "supermarket#supermarket"
 
-  GET "/payment/:payment_id" => "payment#payment"
+  post "supermarket/:supermarket_id" => "supermarket#update"
 
-  POST "/payment/:payment_id" => "payment#update"
+  get "payment/:payment_id" => "payment#payment"
 
-  GET "/payment_transaction/:payment_transaction_id" => "payment_transaction#payment_transaction"
+  post "payment/:payment_id" => "payment#update"
 
-  POST "/payment_transaction/:payment_transaction_id" => "payment_transaction#update"
+  get "payment_transaction/:payment_transaction_id" => "payment_transaction#payment_transaction"
+
+  post "payment_transaction/:payment_transaction_id" => "payment_transaction#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

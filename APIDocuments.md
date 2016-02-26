@@ -188,10 +188,8 @@ Response:
     }
 }
 ```
-
-
-### POST /profile/:user_id
-Update user profile for certain user
+### POST /profile/create/:user_id
+create user profile for certain user
 ```
 Parameters: address, password, profile_img_url, payment
 Parameters in URL: user_id
@@ -203,6 +201,28 @@ POST localhost:3000/profile/1234
 Parameters:
     address: ...
     password: ...
+    profile_img_url: ...
+    payment: ...
+
+Response:
+{
+    "msg":"OK",
+    "ret":0
+}
+```
+
+### POST /profile/:user_id
+Update user profile for certain user
+```
+Parameters: address, profile_img_url, payment
+Parameters in URL: user_id
+```
+
+Example:
+```
+POST localhost:3000/profile/1234
+Parameters:
+    address: ...
     profile_img_url: ...
     payment: ...
 
