@@ -1,13 +1,13 @@
 class UserController < ApplicationController
-  helper GlobalHelper
+  include GlobalHelper
   def user
   	user = User.find(params[:user])
     if user
       res = success_return
       res["user"] = user
-      return json: res
+      render json:  res
     else
-      return json: fail_find
+      render json:  fail_find
     end
   end
 
@@ -16,18 +16,18 @@ class UserController < ApplicationController
     if user.save
       res = success_return
       res["user_id"] = user.id
-      return json: res
+      render json:  res
     else
-      return json: fail_save
+      render json:  fail_save
     end
   end
 
   def update
     @user = User.find(params[:user_id])
     if @user.update_attributes(user_params_updatable)
-      return json: success_return
+      render json:  success_return
     else
-      return json: fail_update
+      render json:  fail_update
     end
   end
 
@@ -35,18 +35,18 @@ class UserController < ApplicationController
     u = User.find_by email:params[:email]
     p = u.profile
     # Use some email sending method to reset password
-    return json: success_return
+    render json:  success_return
   end
 
   def profile
     u = User.find(params[:user_id])
-    p = u.profile
+    p = u.user_profile
     if p
       res = success_return
       res["profile"] = p
-      return json: res
+      render json:  res
     else
-      return fail_find
+      render json: fail_find
     end
   end
 
@@ -55,9 +55,9 @@ class UserController < ApplicationController
     u = User.find(params[:user_id])
     u.profile = p
     if p.save
-      return json: success_return
+      render json: success_return
     else
-      return json: fail_update
+      render json: fail_update
     end
   end
 
@@ -65,9 +65,9 @@ class UserController < ApplicationController
     u = User.find(params[:user_id])
     p = u.profile
     if p.update_attributes(user_profile_updatable)
-      return json: success_return
+      render json: success_return
     else
-      return json: fail_update
+      render json: fail_update
     end
   end
 
