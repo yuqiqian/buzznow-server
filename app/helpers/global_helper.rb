@@ -14,4 +14,31 @@ module GlobalHelper
 	def fail_find
 		return {"msg"=>"cannot find this user", "ret"=>6}
 	end
+
+	def general_return_function(category, judgement, object_name,return_object=null)
+		case category
+		when "find"
+			if judgement
+				res = success_return
+				res[object_name] = return_object
+				render json: res
+			else
+				render json: fail_find
+			end
+		when "save"
+			if judgement
+				render json: success_return
+			else
+				render json: fail_save
+			end
+		when "update"
+			if judgement
+				render json: success_return
+			else
+				render json: fail_update
+			end
+		end
+	end
+			
+		
 end
