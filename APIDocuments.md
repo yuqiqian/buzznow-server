@@ -655,7 +655,7 @@ Response:
 ### POST /payment_transaction/
 Create new payment transaction.
 ```
-Parameters: requester_id, helper_id, payment_time, amount, payment_method_id, transaction_id
+Parameters: requester_id, helper_id, payment_time, amount, payment_method_id
 
 Parameters in URL:
 ```
@@ -667,8 +667,7 @@ Parameters:
     helper_id: 3 
     payment_time: "2016-02-13 00:37:07" 
     amount: 321.0 
-    payment_method_id: 1 
-    transaction_id: 1
+    payment_method_id: 1
 
 Response:
 {
@@ -681,7 +680,7 @@ Response:
 ### POST /payment_transaction/:payment_transaction_id
 Update certain payment transaction.
 ```
-Parameters: paymenttransaction_id, requester_id, helper_id, payment_time, amount, payment_method_id, transaction_id
+Parameters: paymenttransaction_id, requester_id, helper_id, payment_time, amount, payment_method_id
 
 Parameters in URL: paymenttransaction_id
 ```
@@ -695,7 +694,6 @@ Parameters:
     payment_time: "2016-02-13 00:37:07" 
     amount: 321.0 
     payment_method_id: 1 
-    transaction_id: 1
 
 Response:
 {
