@@ -1,5 +1,6 @@
 class SupermarketController < ApplicationController
 	include GlobalHelper
+	skip_before_filter  :verify_authenticity_token
 	def supermarket
 		sm = Supermarket.find(params[:supermarket_id])
 		general_return_function("find", sm, "supermarket", sm)
@@ -16,6 +17,6 @@ class SupermarketController < ApplicationController
 	end
 
 	def supermarket_params
-		params.require[:supermarket].permit(:name, :picture)
+		params.require(:supermarket).permit(:name, :picture)
 	end
 end

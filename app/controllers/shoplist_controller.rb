@@ -1,5 +1,6 @@
 class ShoppingController < ApplicationController
 	include GlobalHelper
+	skip_before_filter  :verify_authenticity_token
 	def shoplist
 		sl = Shoplist.find(params[:shoplist])
 		if sl

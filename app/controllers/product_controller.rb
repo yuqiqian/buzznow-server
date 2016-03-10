@@ -1,5 +1,6 @@
 class ProductController < ApplicationController
 	include GlobalHelper
+	skip_before_filter  :verify_authenticity_token
 	def product
 		p = Product.find(params[:product_id])
 		general_return_function("find", p, "product", p)
@@ -16,6 +17,6 @@ class ProductController < ApplicationController
 	end
 
 	def product_params
-		params.require[:product_id].permit(:name, :product_img, :price, :category)
+		params.require(:product_id).permit(:name, :product_img, :price, :category)
 	end 
 end

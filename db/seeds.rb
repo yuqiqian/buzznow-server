@@ -29,7 +29,7 @@ require 'faker'
 		payment: p,
 		user: u
 		)
-
+	byebug
 	u.user_profile = up
 	u.save!
 

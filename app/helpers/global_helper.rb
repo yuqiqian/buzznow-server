@@ -15,7 +15,7 @@ module GlobalHelper
 		return {"msg"=>"cannot find this user", "ret"=>6}
 	end
 
-	def general_return_function(category, judgement, object_name,return_object=null)
+	def general_return_function(category, judgement, object_name,return_object=nil)
 		case category
 		when "find"
 			if judgement
