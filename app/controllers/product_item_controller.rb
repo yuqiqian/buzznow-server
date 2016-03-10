@@ -1,5 +1,6 @@
 class ProductItemController < ApplicationController
 	include GlobalHelper
+	skip_before_filter  :verify_authenticity_token
 	def product_item
 		pi = ProductItem.find(params[:product_item_id])
 		general_return_function("find", pi, "product_item", pi)
@@ -28,10 +29,10 @@ class ProductItemController < ApplicationController
 	end
 
 	def product_item_parameter
-		params.require[:product_item].permit(:product_id, :quantity, :is_bought, :shoplist_id)
+		params.require(:product_item).permit(:product_id, :quantity, :is_bought, :shoplist_id)
 	end
 
 	def product_item_updatable_parameter
-		params.require[:product_item].permit(:product_id, :quantity, :is_bought, :shoplist_id)
+		params.require(:product_item).permit(:product_id, :quantity, :is_bought, :shoplist_id)
 	end
 end

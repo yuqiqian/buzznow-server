@@ -1,5 +1,6 @@
 class PaymentController < ApplicationController
   include GlobalHelper
+  skip_before_filter  :verify_authenticity_token
   def payment
   	p = Payment.find(params[:payment_id])
   	general_return_function("find", p, "payment", p)
@@ -14,14 +15,15 @@ class PaymentController < ApplicationController
 
   def update
   	p = Payment.find(params[:payment_id])
-  	general_return_function("update", p.update_attributes, "payment")
+    #byebug
+  	general_return_function("update", p.update_attributes(payment_updatable_params), "payment")
   end
 
   def payment_params
-  	params.require[:payment].permit(:user_id, :card_last_four_digit, :billing_address)
+  	params.require(:payment).permit(:user_id, :card_last_four_digit, :billing_address)
   end
 
   def payment_updatable_params
-  	params.require[:payment].permit(:card_last_four_digit, :billing_address)
+  	params.require(:payment).permit(:card_last_four_digit, :billing_address)
   end
 end
