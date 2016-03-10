@@ -431,6 +431,27 @@ Response:
     }
 }
 ```
+### POST /product/
+Save certain product.
+```
+Parameters: name, product_img, price
+
+Parameters in URL: 
+```
+Example:
+```
+POST localhost:3000/product_item/
+Parameters:
+    name: "my product" 
+    product_img: "http://..." 
+    price: 3.43
+
+Response:
+{
+    "msg":"OK",
+    "ret":0
+}
+```
 
 ### POST /product/:product_id
 Update certain product.
@@ -441,7 +462,7 @@ Parameters in URL: product_id
 ```
 Example:
 ```
-POST localhost:3000/product_item/1
+POST localhost:3000/product/1
 Parameters:
     product_id: 1
     name,: "my product" 
@@ -482,6 +503,27 @@ Response:
 }
 ```
 
+### POST /supermarket/
+Create new supermarket.
+```
+Parameters: name, picture
+
+Parameters in URL: 
+```
+Example:
+```
+POST localhost:3000/supermarket/
+Parameters:
+    name: "my supermarket" 
+    picture:"http://..."
+
+Response:
+{
+    "msg":"OK",
+    "ret":0
+}
+```
+
 ### POST /supermarket/:supermarket_id
 Update certain supermarket.
 ```
@@ -491,7 +533,7 @@ Parameters in URL: supermarket_id
 ```
 Example:
 ```
-POST localhost:3000/product_item/1
+POST localhost:3000/supermarket/1
 Parameters:
     supermarket_id: 1 
     name: "my supermarket" 
@@ -533,6 +575,28 @@ Response:
 }
 ```
 
+### POST /payment/
+Creaet new payment.
+```
+Parameters: user_id, card_last_four_digit, billing_address
+
+Parameters in URL: 
+```
+Example:
+```
+POST localhost:3000/payment/1
+Parameters:
+    user_id: 2 
+    card_last_four_digit: 0000
+    billing_address: "somewhere ..."
+
+Response:
+{
+    "msg":"OK",
+    "ret":0
+}
+```
+
 ### POST /payment/:payment_id
 Update certain payment.
 ```
@@ -542,7 +606,7 @@ Parameters in URL: payment_id
 ```
 Example:
 ```
-POST localhost:3000/product_item/1
+POST localhost:3000/payment/1
 Parameters:
     payment_id: 1 
     user_id: 2 
@@ -588,16 +652,41 @@ Response:
 }
 ```
 
+### POST /payment_transaction/
+Create new payment transaction.
+```
+Parameters: requester_id, helper_id, payment_time, amount, payment_method_id
+
+Parameters in URL:
+```
+Example:
+```
+POST localhost:3000/payment_transaction/1
+Parameters:
+    requester_id: 2 
+    helper_id: 3 
+    payment_time: "2016-02-13 00:37:07" 
+    amount: 321.0 
+    payment_method_id: 1
+
+Response:
+{
+    "msg":"OK",
+    "ret":0
+}
+```
+
+
 ### POST /payment_transaction/:payment_transaction_id
 Update certain payment transaction.
 ```
-Parameters: paymenttransaction_id, requester_id, helper_id, payment_time, amount, payment_method_id, transaction_id
+Parameters: paymenttransaction_id, requester_id, helper_id, payment_time, amount, payment_method_id
 
 Parameters in URL: paymenttransaction_id
 ```
 Example:
 ```
-POST localhost:3000/product_item/1
+POST localhost:3000/payment_transaction/1
 Parameters:
     paymenttransaction_id: 1 
     requester_id: 2 
@@ -605,7 +694,6 @@ Parameters:
     payment_time: "2016-02-13 00:37:07" 
     amount: 321.0 
     payment_method_id: 1 
-    transaction_id: 1
 
 Response:
 {
