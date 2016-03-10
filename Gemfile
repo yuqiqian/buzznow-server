@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+require 'rbconfig'
+gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
