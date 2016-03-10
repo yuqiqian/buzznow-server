@@ -1,5 +1,7 @@
 class UserController < ApplicationController
   include GlobalHelper
+  skip_before_filter  :verify_authenticity_token
+
   def user
   	user = User.find(params[:user])
     if user
@@ -89,6 +91,7 @@ class UserController < ApplicationController
   end
 
   def user_params
+    print params
     params.require(:user).permit(:gt_id, :first_name, :last_name, :email)
   end
 
