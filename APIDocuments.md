@@ -701,3 +701,226 @@ Response:
     "ret":0
 }
 ```
+
+## Category
+### GET /categories/
+get all of the categories
+```
+Parameters:
+
+Parameters in URL:
+```
+Example:
+```
+GET /categories/
+Response:
+{
+    "msg":"OK",
+    "ret": 0
+    "categories":{
+        "food":[
+            "vegetable":["fresh","dry"],
+            "frozen":["fish",...],
+            ...
+        ]
+        "household":[],
+        ...
+    }    
+}
+```
+
+
+## Pages
+
+### login_GT
+### GET /user/login_gt
+log into the account
+```
+Parameters: gt_id, password
+
+Parameters in URL: 
+```
+Example:
+```
+POST localhost:3000/user/login_gt
+Parameters:
+    gt_id:test33
+    password:Test33Password
+
+Response:
+{
+    "msg":"OK",
+    "ret":0
+    "user":{
+        "id":...
+        "first_name":...
+        "last_name":...
+        "email":...
+    }
+}
+```
+
+
+### home_requester
+### GET /home_requester/:user_id
+Get all the things need for this page
+```
+Parameters in URL: user_id 
+```
+Example:
+```
+POST localhost:3000/home_requester/1
+Parameters:
+
+Response:
+{
+    "msg":"OK",
+    "ret":0
+    "shoplists":[{
+        "helper": {
+            "id":...,
+            "first_name":...,
+            "last_name":...,
+            "email":...,
+            "avatar_url":...,
+        }, 
+        "requester": {
+            "id":...,
+            "first_name":...,
+            "last_name":...,
+            "email":...,
+            "avatar_url":...,
+        },  
+        "supermarket": "Cookley", 
+        "products":[
+            {
+                "product":{
+                    "name":...,
+                    "product_img":...,
+                    "price":...
+                },
+                "quantity":...,
+                "is_bought":...,
+            },
+            {
+                ...
+            },
+            ...
+        ]
+        "expire_time": ..., 
+        "total_price": ..., 
+        "actual_price": ..., 
+        "status": ..., 
+        "created_at": ..., 
+        "updated_at": ..., 
+        "receipt": "...",
+    },{
+        "Shoplist_id":...
+        ...
+    },
+    ...
+    ]
+}
+```
+
+### home_shopper
+### GET /home_shopper/:user_id
+Get all the things need for this page
+```
+Parameters in URL: user_id 
+```
+Example:
+```
+POST localhost:3000/home_shopper/1
+Parameters:
+
+Response:
+{
+    "msg":"OK",
+    "ret":0,
+    "order_summary"{
+        "total_orders":...,
+        "total_items":...,
+        "total_money":...,
+        "total_tips":...,
+        "requesters":[
+            {
+                "id":...,
+                "first_name":...,
+                "last_name":...,
+                "photo_url":...
+            },
+            ...
+        ]
+    }
+}
+```
+
+
+### select_orders
+### GET /select_orders/:supermarket
+Get all the orders that can be selected
+```
+Parameters in URL:  supermarket
+```
+Example:
+```
+POST localhost:3000/select_orders/walmart
+Parameters:
+
+Response:
+{
+    "msg":"OK",
+    "ret":0,
+    "orders":[{
+        "requester":{
+            "first_name":...,
+            "last_name":...,
+            "summary":...,
+            },
+        "order":{
+            "total_items":...,
+            "weight":...,
+            "total_money":...,
+            "tip":...
+            }
+        },{
+            ...
+        }
+        ...
+    ]
+}
+```
+
+### shopping checklist
+### GET /shopping_checklist/:shoplist_id
+Get all the items in the shoplist
+```
+Parameters in URL:  shoplist_id
+```
+Example:
+```
+POST localhost:3000/shopping_checklist/1
+Parameters:
+
+Response:
+{
+    "msg":"OK",
+    "ret":0,
+    "checklist":[{
+        "product":{
+            "name":...,
+            "brand":...,
+            "nutrition":...,
+            "product_img":...,
+            "price":...,
+            "category":...
+            },
+        "quantity":...,
+        "is_bought":...,
+        },
+        ...
+    ]
+}
+```
+

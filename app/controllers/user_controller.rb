@@ -55,17 +55,20 @@ class UserController < ApplicationController
   def create_profile
     p = UserProfile.new(user_profile_params)
     u = User.find(params[:user_id])
-    u.profile = p
-    if p.save
-      render json: success_return
+    if u.user_profile
+      render json: duplicate_create
     else
-      render json: fail_update
+      u.user_profile = p
+      if p.save
+        render json: success_return
+      else
+        render json: fail_update
+      end
     end
   end
 
   def update_profile
-    u = User.find(params[:user_id])
-    p = u.profile
+    p = UserProfile.find(params[:profile_id])
     if p.update_attributes(user_profile_updatable)
       render json: success_return
     else

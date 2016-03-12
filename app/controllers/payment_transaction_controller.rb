@@ -14,16 +14,16 @@ class PaymentTransactionController < ApplicationController
 		p = Payment.find(pms[:payment_method_id])
 		pt.requester = req
 		pt.helper = helper
-		pt.payment = p
+		pt.payment_method = p
 		general_return_function("save", pt, "payment_transaction")
 	end
 
 	def update
 		pt = PaymentTransaction.find(params[:payment_transaction_id])
-		byebug
+		#byebug
 		p = Payment.find(payment_transaction_updatable_params[:payment_method_id])
-		pt.payment = p
-		general_return_function("update", pt.update_attributions(payment_transaction_updatable_params), "payment_transaction")
+		pt.payment_method = p
+		general_return_function("update", pt.update_attributes(payment_transaction_updatable_params), "payment_transaction")
 	end
 
 	def payment_transaction_params

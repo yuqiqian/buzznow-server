@@ -15,6 +15,10 @@ module GlobalHelper
 		return {"msg"=>"cannot find this user", "ret"=>6}
 	end
 
+	def duplicate_create
+		return {"msg"=>"Related record already exits, cannot create this record", "ret"=>7}
+	end
+
 	def general_return_function(category, judgement, object_name,return_object=nil)
 		case category
 		when "find"

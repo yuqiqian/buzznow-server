@@ -12,11 +12,12 @@ class ProductController < ApplicationController
 	end
 
 	def update
+		#byebug
 		p = Product.find(params[:product_id])
 		general_return_function("update", p.update_attributes(product_params), "product")
 	end
 
 	def product_params
-		params.require(:product_id).permit(:name, :product_img, :price, :category)
+		params.require(:product).permit(:name, :product_img, :price, :category)
 	end 
 end

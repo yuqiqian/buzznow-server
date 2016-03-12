@@ -35,14 +35,20 @@ Rails.application.routes.draw do
   get "supermarket/:supermarket_id" => "supermarket#supermarket"
 
   post "supermarket/:supermarket_id" => "supermarket#update"
+  
+  post "supermarket/" => "supermarket#new"
 
   get "payment/:payment_id" => "payment#payment"
 
   post "payment/:payment_id" => "payment#update"
 
+  post "payment/" => "payment#new"
+
   get "payment_transaction/:payment_transaction_id" => "payment_transaction#payment_transaction"
 
   post "payment_transaction/:payment_transaction_id" => "payment_transaction#update"
+
+  post "payment_transaction/" => "payment_transaction#new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

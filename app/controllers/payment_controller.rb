@@ -8,8 +8,8 @@ class PaymentController < ApplicationController
 
   def new
   	p = Payment.new(payment_params)
-  	u = User.find(payment_params[:user_id])
-  	p.user = u
+  	u = UserProfile.find(payment_params[:user_profile_id])
+  	p.user_profile = u
   	general_return_function("save", p.save, "payment")
   end
 
@@ -20,7 +20,7 @@ class PaymentController < ApplicationController
   end
 
   def payment_params
-  	params.require(:payment).permit(:user_id, :card_last_four_digit, :billing_address)
+  	params.require(:payment).permit(:user_profile_id, :card_last_four_digit, :billing_address)
   end
 
   def payment_updatable_params

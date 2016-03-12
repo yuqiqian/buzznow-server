@@ -5,7 +5,7 @@ class CreateUserProfiles < ActiveRecord::Migration
       t.text :address
       t.string :password
       t.string :profile_img_url
-      t.integer :payment
+      t.references :payments, index: true, foreign_key: true
 
       t.timestamps null: false
     end
