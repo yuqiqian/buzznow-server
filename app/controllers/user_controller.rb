@@ -93,6 +93,9 @@ class UserController < ApplicationController
   	@onGoing = @recvReq.where(status: "incomplete")
   end
 
+  def login_gt
+  end
+
   def user_params
     print params
     params.require(:user).permit(:gt_id, :first_name, :last_name, :email)

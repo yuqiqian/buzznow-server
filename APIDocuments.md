@@ -784,13 +784,6 @@ Response:
             "email":...,
             "avatar_url":...,
         }, 
-        "requester": {
-            "id":...,
-            "first_name":...,
-            "last_name":...,
-            "email":...,
-            "avatar_url":...,
-        },  
         "supermarket": "Cookley", 
         "products":[
             {

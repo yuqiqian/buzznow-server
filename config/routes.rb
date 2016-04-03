@@ -50,6 +50,19 @@ Rails.application.routes.draw do
 
   post "payment_transaction/" => "payment_transaction#new"
 
+  get "user/login_gt/" => "user#login_gt"
+
+  get "home_requester/:user_id" => "page#home_requester"
+
+  get "home_shopper/:user_id" => "page#home_shopper"
+
+  get "select_orders/:supermarket" => "page#select_orders"
+
+  get "shopping_checklist/:shoplist_id" => "page#shopping_checklist"
+
+  
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
