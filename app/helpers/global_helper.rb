@@ -43,6 +43,18 @@ module GlobalHelper
 			end
 		end
 	end
+
+	def object2hash(obj)
+		hash = {}
+		obj.attributes.each do |k, v|
+			if v.is_a?(BigDecimal)
+				hash[k] = v.to_f
+			else
+				hash[k] = v
+			end
+		end
+		return hash
+	end
 			
 		
 end
